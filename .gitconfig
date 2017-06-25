@@ -1,0 +1,41 @@
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[user]
+	name = ouchi2501
+	email = unclesam2501@gmail.com
+[core]
+	excludesfile = /Users/KOHEI/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+st = status
+cm = commit
+wdiff = diff --word-diff
+dp = diff --no-prefix
+dsp = diff --cached --no-prefix
+co = checkout
+logg = log --graph --all --decorate
+lg = log --graph --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset %Cgreen(%cr:%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=iso
+unstage = reset HEAD
+lga = !"git lg --all"
+sgraph = !"git log --oneline --graph"
+cp = cherry-pick
+sp = stash pop
+ss = stash save
+br = branch
