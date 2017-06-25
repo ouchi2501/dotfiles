@@ -50,7 +50,7 @@ set number                 " Show line number
 set clipboard=unnamed  " share clipboard and yank
 
 " vim splash
-let g:splash#path = "/Users/kouchi/Documents/hello.txt"
+let g:splash#path = "~/dotfiles/splash.txt"
 
 if has("gui_running")
 set lines=99999 columns=99999
