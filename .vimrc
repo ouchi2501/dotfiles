@@ -10,6 +10,7 @@ NeoBundle 'thinca/vim-splash'           " start up splash
 NeoBundle 'itchyny/lightline.vim'       " status bar
 NeoBundle 'mattn/hahhah-vim'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'AndrewRadev/switch.vim'
 " ここまで
 call neobundle#end()
 NeoBundleCheck
