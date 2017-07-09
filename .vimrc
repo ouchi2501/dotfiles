@@ -11,6 +11,7 @@ NeoBundle 'itchyny/lightline.vim'       " status bar
 NeoBundle 'mattn/hahhah-vim'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'scrooloose/nerdtree'
 " ここまで
 call neobundle#end()
 NeoBundleCheck
@@ -49,6 +50,8 @@ set synmaxcol   =200       " Only highlight the first 200 columns.
 set number                 " Show line number
 
 set clipboard=unnamed  " share clipboard and yank
+
+map <C-n> :NERDTreeToggle<CR>
 
 " vim splash
 let g:splash#path = "~/dotfiles/splash.txt"
