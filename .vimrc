@@ -51,10 +51,13 @@ set number                 " Show line number
 
 set clipboard=unnamed  " share clipboard and yank
 
+set nobackup
+set noundofile
+
 map <C-n> :NERDTreeToggle<CR>
 
 " vim splash
-let g:splash#path = "~/dotfiles/splash.txt"
+let g:splash#path = $HOME . "/dotfiles/splash.txt"
 
 if has("gui_running")
 set lines=99999 columns=99999
