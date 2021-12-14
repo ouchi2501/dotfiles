@@ -1,24 +1,40 @@
-set nocompatible
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-" set NeoBundle
-set runtimepath^=~/.vim/bundle/neobundle.vim/
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+" Required:
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" ここにプラグインを書く
-NeoBundle 'thinca/vim-splash'           " start up splash
-NeoBundle 'itchyny/lightline.vim'       " status bar
-NeoBundle 'mattn/hahhah-vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'scrooloose/nerdtree'
-" ここまで
-call neobundle#end()
-NeoBundleCheck
+" Required:
+call dein#begin('~/.cache/dein')
 
-syntax on                  " Enable syntax highlighting.
-set background=dark
-colorscheme hybrid
+" Let dein manage dein
+" Required:
+call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+" Add or remove your plugins here like this:
+"molokaiのカラーテーマ"
+call dein#add('tomasr/molokai')
+"status bar:
+call dein#add('itchyny/lightline.vim')
+call dein#add('mattn/hahhah-vim')
+call dein#add('thinca/vim-splash')
+
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+colorscheme molokai
+set t_Co=256
 
 set autoindent             " Indent according to previous line.
 set expandtab              " Use spaces instead of tabs.
@@ -54,18 +70,19 @@ set clipboard=unnamed  " share clipboard and yank
 set nobackup
 set noundofile
 
-map <C-n> :NERDTreeToggle<CR>
-
-" vim splash
-let g:splash#path = $HOME . "/dotfiles/splash.txt"
-
 if has("gui_running")
 set lines=99999 columns=99999
 endif
 
+" vim splash
+let g:splash#path = $HOME . "/.splash.txt"
+
+"molokai
+let g:molokai_original = 1
+
 " lightline
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
+        \ 'colorscheme': 'molokai',
         \ 'mode_map': {'c': 'NORMAL'},
         \ 'active': {
         \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename', 'haha' ] ]
